@@ -1120,22 +1120,7 @@ def main():
     else:
         dashboard_page()
     
-    # Footer
-    st.markdown("---")
-    st.markdown("""
-    <div class="mobile-footer">
-        <h3>📞 Need Help?</h3>
-        <p>Get support for Invoice Maker</p>
-        <p><strong>Email:</strong> <a href="mailto:ashwin2431333@gmail.com">ashwin2431333@gmail.com</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/Ashwinjauhary/Invoicyy">Report Issues</a></p>
-        <p><strong>Live Demo:</strong> <a href="https://invoicyy.streamlit.app">Web App</a></p>
-        <hr style="margin: 1rem 0; border: 1px solid #e9ecef;">
-        <p style="font-size: 0.9rem; color: #6c757d;">
-            🧾 Invoice Maker - Professional Billing System<br>
-            Made with ❤️ for small businesses in India
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+    # Footer removed for cleaner interface
 
 if __name__ == "__main__":
     main()

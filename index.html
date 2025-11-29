@@ -212,12 +212,41 @@
 
         .footer {
             text-align: center;
-            color: white;
+            color: #333;
             margin-top: 3rem;
             padding: 2rem;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
             border-radius: 15px;
             margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .footer a {
+            color: #667eea !important;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #764ba2 !important;
+            text-decoration: underline;
+        }
+
+        .footer p {
+            color: #495057;
+            margin: 0.5rem 0;
+        }
+
+        .footer h3 {
+            color: #333 !important;
+            margin-bottom: 1rem;
+        }
+
+        .footer .support-email {
+            color: #28a745 !important;
+            font-weight: 600;
         }
 
         @keyframes fadeInDown {
@@ -397,18 +426,18 @@
         <footer class="footer">
             <p>&copy; 2024 Invoice Maker. Made with ❤️ for small businesses.</p>
             <p>
-                <a href="https://github.com/Ashwinjauhary/Invoicyy" style="color: white; margin: 0 1rem;">
+                <a href="https://github.com/Ashwinjauhary/Invoicyy" style="color: #667eea; margin: 0 1rem;">
                     <i class="fab fa-github"></i> GitHub
                 </a>
-                <a href="https://invoicyy.streamlit.app" style="color: white; margin: 0 1rem;">
+                <a href="https://invoicyy.streamlit.app" style="color: #667eea; margin: 0 1rem;">
                     <i class="fas fa-globe"></i> Live Demo
                 </a>
-                <a href="mailto:ashwin2431333@gmail.com" style="color: white; margin: 0 1rem;">
+                <a href="mailto:ashwin2431333@gmail.com" style="color: #667eea; margin: 0 1rem;">
                     <i class="fas fa-envelope"></i> Support
                 </a>
             </p>
             <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                <i class="fas fa-headset"></i> Need Help? Email: ashwin2431333@gmail.com
+                <i class="fas fa-headset"></i> Need Help? <span class="support-email">ashwin2431333@gmail.com</span>
             </p>
         </footer>
     </div>

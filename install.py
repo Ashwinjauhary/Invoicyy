@@ -290,7 +290,7 @@ Keywords=invoice;billing;gst;accounting;
                 f.write(f'''#!/bin/bash
 echo "🧾 Starting Invoice Maker..."
 cd "{self.install_dir}"
-"{sys.executable}" "{self.install_dir / "web_app.py}"
+"{sys.executable}" "{self.install_dir / "web_app.py"}"
 ''')
             
             launcher.chmod(0o755)
@@ -307,6 +307,10 @@ cd "{self.install_dir}"
         
         if self.system == "windows":
             uninstaller = self.install_dir / "uninstall.bat"
+            install_dir_str = str(self.install_dir)
+            desktop_dir_str = str(self.desktop_dir)
+            start_menu_dir_str = str(self.start_menu_dir)
+            
             with open(uninstaller, 'w') as f:
                 f.write(f'''@echo off
 echo 🗑️  Uninstalling Invoice Maker...
@@ -314,15 +318,19 @@ echo.
 echo This will remove Invoice Maker from your system.
 echo.
 pause
-rmdir /s /q "{self.install_dir}"
-del "{self.desktop_dir}\\Invoice Maker.lnk"
-del "{self.start_menu_dir}\\Invoice Maker.lnk"
+rmdir /s /q "{install_dir_str}"
+del "{desktop_dir_str}\\Invoice Maker.lnk"
+del "{start_menu_dir_str}\\Invoice Maker.lnk"
 echo.
 echo ✅ Invoice Maker uninstalled successfully!
 pause
 ''')
         else:
             uninstaller = self.install_dir / "uninstall.sh"
+            install_dir_str = str(self.install_dir)
+            desktop_dir_str = str(self.desktop_dir)
+            start_menu_dir_str = str(self.start_menu_dir)
+            
             with open(uninstaller, 'w') as f:
                 f.write(f'''#!/bin/bash
 echo "🗑️  Uninstalling Invoice Maker..."
@@ -330,9 +338,9 @@ echo
 echo "This will remove Invoice Maker from your system."
 echo
 read -p "Press Enter to continue..."
-rm -rf "{self.install_dir}"
-rm -f "{self.desktop_dir}/Invoice Maker.lnk" 2>/dev/null || true
-rm -f "{self.start_menu_dir}/invoicemaker.desktop" 2>/dev/null || true
+rm -rf "{install_dir_str}"
+rm -f "{desktop_dir_str}/Invoice Maker.lnk" 2>/dev/null || true
+rm -f "{start_menu_dir_str}/invoicemaker.desktop" 2>/dev/null || true
 echo
 echo "✅ Invoice Maker uninstalled successfully!"
 ''')

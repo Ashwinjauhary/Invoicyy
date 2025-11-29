@@ -1,0 +1,40 @@
+# Invoice Maker - Professional Billing System
+# Required Python packages
+
+# GUI Framework
+PyQt5==5.15.10
+
+# Database
+sqlite3  # Built-in with Python
+
+# PDF Generation
+reportlab==4.0.7
+Pillow==10.1.0
+
+# QR Code Generation
+qrcode[pil]==7.4.2
+
+# Data Processing
+pandas==2.1.4
+
+# Excel Export
+openpyxl==3.1.2
+
+# Additional utilities
+python-dateutil==2.8.2
+numpy==1.26.2
+
+# Optional: For barcode scanning (if needed)
+# pyzbar==0.1.9
+# opencv-python==4.8.1.78
+
+# Optional: For WhatsApp automation (bonus feature)
+# selenium==4.16.0
+# webdriver-manager==4.0.1
+
+# Optional: For thermal printer support
+# python-escpos==3.0.0
+# pyusb==1.2.1
+
+# Development and packaging (for creating EXE)
+# pyinstaller==6.2.0

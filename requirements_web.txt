@@ -1,0 +1,67 @@
+# 🧾 Invoice Maker - Web Version Requirements
+# Mobile Responsive Streamlit Application
+
+# Core Framework
+streamlit>=1.29.0
+pandas>=2.1.0
+plotly>=5.17.0
+
+# Database
+sqlite3
+
+# PDF Generation
+reportlab>=4.0.0
+Pillow>=10.0.0
+
+# QR Code Generation
+qrcode[pil]>=7.4.0
+
+# Excel Export (for reports)
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# Date/Time Handling
+python-dateutil>=2.8.0
+
+# Additional Web Features
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# Security & Validation
+cryptography>=41.0.0
+
+# Performance Optimization
+streamlit-caching>=0.1.0
+
+# Mobile Detection
+user-agents>=2.2.0
+
+# File Uploads
+streamlit-file-uploader>=0.1.0
+
+# Export Formats
+python-multipart>=0.0.6
+
+# Email Integration (future)
+smtplib
+
+# Cloud Storage (future)
+boto3>=1.29.0
+google-cloud-storage>=2.10.0
+
+# Analytics (future)
+streamlit-analytics>=0.1.0
+
+# Development & Testing
+pytest>=7.4.0
+pytest-streamlit>=0.1.0
+
+# Production Deployment
+gunicorn>=21.2.0
+nginx>=1.24.0
+
+# SSL & Security
+certbot>=2.7.0
+
+# Monitoring
+streamlit-monitor>=0.1.0

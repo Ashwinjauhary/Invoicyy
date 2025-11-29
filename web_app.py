@@ -440,11 +440,24 @@ st.markdown("""
 # Initialize database
 @st.cache_resource
 def init_db():
-    """Initialize database connection"""
+    """Initialize database connection - v2"""
     return DatabaseManager()
 
+# Force cache refresh
+@st.cache_resource
+def get_db():
+    """Get database instance with fresh cache"""
+    db_instance = DatabaseManager()
+    # Debug: Check if method exists
+    if hasattr(db_instance, 'save_shop_settings'):
+        print("✅ save_shop_settings method found")
+    else:
+        print("❌ save_shop_settings method NOT found")
+        print("Available methods:", [method for method in dir(db_instance) if not method.startswith('_')])
+    return db_instance
+
 # Initialize classes
-db = init_db()
+db = get_db()  # Use fresh database instance
 gst_calc = GSTCalculator()
 pdf_gen = PDFGenerator()
 qr_gen = QRCodeGenerator()

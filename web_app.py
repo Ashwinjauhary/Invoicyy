@@ -440,6 +440,7 @@ st.markdown("""
 # Initialize database
 @st.cache_resource
 def init_db():
+    """Initialize database connection"""
     return DatabaseManager()
 
 # Initialize classes

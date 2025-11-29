@@ -165,6 +165,7 @@ pip install selenium webdriver-manager
 
 ### Multi-User Support
 - **Admin**: Full access to all features
+- **🌐 Web App**: [Live Demo](https://invoicyy.streamlit.app)
 - **Cashier**: Limited to invoice creation
 - User authentication and role management
 

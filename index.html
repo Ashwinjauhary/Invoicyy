@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧾 Invoice Maker - Professional Billing System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .demo-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .demo-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .app-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .app-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .app-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .app-button.primary {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
+        .app-button.secondary {
+            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+        }
+
+        .qr-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .qr-code {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: inline-block;
+            margin: 1rem;
+        }
+
+        .qr-code img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .installation-guide {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .installation-guide h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .mobile-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .mobile-device {
+            background: #333;
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .mobile-device.mobile {
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+        }
+
+        .mobile-device.tablet {
+            background: linear-gradient(135deg, #555 0%, #777 100%);
+        }
+
+        .mobile-device.desktop {
+            background: linear-gradient(135deg, #777 0%, #999 100%);
+        }
+
+        .mobile-device i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            padding: 2rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                padding: 2rem;
+            }
+
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .app-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🧾 Invoice Maker</h1>
+            <p>Professional Billing System for Modern Businesses</p>
+            <p>Mobile Responsive • Cloud Ready • Easy to Use</p>
+        </header>
+
+        <main class="main-content">
+            <section class="demo-section">
+                <h2>🚀 Try Invoice Maker Now</h2>
+                <p>Choose your preferred platform and start creating professional invoices in minutes!</p>
+                
+                <div class="app-buttons">
+                    <a href="https://invoicyy-mjkwlbsg73liuxs8jyfukz.streamlit.app" class="app-button primary" target="_blank">
+                        <i class="fas fa-globe"></i>
+                        Web Application
+                    </a>
+                    <a href="https://github.com/Ashwinjauhary/Invoicyy" class="app-button secondary" target="_blank">
+                        <i class="fab fa-github"></i>
+                        Download Source
+                    </a>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: #333;">✨ Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile Responsive</h3>
+                        <p>Works perfectly on phones, tablets, and desktops. Touch-friendly interface for mobile users.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-calculator"></i>
+                        <h3>GST Calculations</h3>
+                        <p>Automatic GST calculations with SGST, CGST, and IGST support. Always compliant with tax regulations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>PDF Generation</h3>
+                        <p>Generate professional PDF invoices with your logo, signature, and complete business details.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-qrcode"></i>
+                        <h3>QR Code Payments</h3>
+                        <p>Integrated QR code generation for UPI payments. Fast and secure payment collection.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Customer Management</h3>
+                        <p>Complete customer database with contact details, GSTIN, and purchase history.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-box"></i>
+                        <h3>Product Management</h3>
+                        <p>Manage your inventory with product details, pricing, stock levels, and categories.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mobile-preview">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: #333;">📱 Works Everywhere</h2>
+                <div class="mobile-device mobile">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Phones</h3>
+                    <p>Touch-optimized interface for smartphones</p>
+                </div>
+                <div class="mobile-device tablet">
+                    <i class="fas fa-tablet-alt"></i>
+                    <h3>Tablets</h3>
+                    <p>Perfect layout for iPad and Android tablets</p>
+                </div>
+                <div class="mobile-device desktop">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Desktop</h3>
+                    <p>Full-featured experience on computers</p>
+                </div>
+            </section>
+
+            <section class="installation-guide">
+                <h3>🛠️ Local Installation</h3>
+                <p>Want to run Invoice Maker on your own computer? Follow these simple steps:</p>
+                
+                <div class="code-block">
+                    # Clone the repository
+                    git clone https://github.com/Ashwinjauhary/Invoicyy.git
+                    
+                    # Navigate to the directory
+                    cd Invoicyy
+                    
+                    # Install dependencies
+                    pip install -r requirements.txt
+                    
+                    # Run the web application
+                    streamlit run web_app.py
+                </div>
+                
+                <p><strong>Desktop Version:</strong> Run <code>python main.py</code> for the native desktop application.</p>
+            </section>
+
+            <section class="qr-section">
+                <h2>📱 Quick Access</h2>
+                <p>Scan this QR code to open Invoice Maker on your mobile device:</p>
+                <div class="qr-code">
+                    <div style="font-size: 3rem; color: #667eea; margin-bottom: 1rem;">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <p>QR Code for Mobile Access</p>
+                    <small>https://invoicyy-mjkwlbsg73liuxs8jyfukz.streamlit.app</small>
+                </div>
+            </section>
+
+            <section class="demo-section">
+                <h2>🎯 Why Choose Invoice Maker?</h2>
+                <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 1rem 0;"><i class="fas fa-check" style="color: #28a745; margin-right: 0.5rem;"></i> <strong>100% Free</strong> - No hidden charges or subscription fees</li>
+                        <li style="margin: 1rem 0;"><i class="fas fa-check" style="color: #28a745; margin-right: 0.5rem;"></i> <strong>Open Source</strong> - Full control over your data and code</li>
+                        <li style="margin: 1rem 0;"><i class="fas fa-check" style="color: #28a745; margin-right: 0.5rem;"></i> <strong>Privacy Focused</strong> - Your data stays on your device</li>
+                        <li style="margin: 1rem 0;"><i class="fas fa-check" style="color: #28a745; margin-right: 0.5rem;"></i> <strong>Regular Updates</strong> - New features and improvements</li>
+                        <li style="margin: 1rem 0;"><i class="fas fa-check" style="color: #28a745; margin-right: 0.5rem;"></i> <strong>Community Support</strong> - Active developer community</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Invoice Maker. Made with ❤️ for small businesses.</p>
+            <p>
+                <a href="https://github.com/Ashwinjauhary/Invoicyy" style="color: white; margin: 0 1rem;">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://invoicyy-mjkwlbsg73liuxs8jyfukz.streamlit.app" style="color: white; margin: 0 1rem;">
+                    <i class="fas fa-globe"></i> Live Demo
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .mobile-device').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

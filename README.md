@@ -295,14 +295,33 @@ This project is open-source. Check LICENSE file for details.
 
 ## 🙏 Acknowledgments
 
-- PyQt5 team for excellent GUI framework
-- ReportLab for PDF generation capabilities
-- QRCode library for payment integration
-- SQLite for reliable database solution
+- **GitHub Discussions**: Join our community discussions
+- **Feature Updates**: Follow our repository for updates
+- **Contributions**: Welcome pull requests and suggestions
 
 ---
 
-**Made with ❤️ for Indian Shop Owners**
+## 🤝 Contributing
+
+We welcome contributions! Please:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**Made with ❤️ for small businesses in India**
+
+*For support: ashwin2431333@gmail.com*
 
 Perfect for:
 🟢 Kirana stores  

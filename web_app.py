@@ -24,7 +24,7 @@ try:
     from logic.qr_generator import QRCodeGenerator
 except ImportError:
     # Fallback to simple implementations for Streamlit Cloud
-    from db_simple import DatabaseManager
+    from db_web import DatabaseManager  # Use new database file
     from gst_calculator_simple import GSTCalculator
     
     # Simple PDF and QR generators (placeholders)

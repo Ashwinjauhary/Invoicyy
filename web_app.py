@@ -17,10 +17,56 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # Database imports
-from database.db import DatabaseManager
-from logic.gst_calculator import GSTCalculator
-from logic.pdf_generator import PDFGenerator
-from logic.qr_generator import QRCodeGenerator
+try:
+    from database.db import DatabaseManager
+    from logic.gst_calculator import GSTCalculator
+    from logic.pdf_generator import PDFGenerator
+    from logic.qr_generator import QRCodeGenerator
+except ImportError:
+    # Fallback to simple implementations for Streamlit Cloud
+    from db_simple import DatabaseManager
+    from gst_calculator_simple import GSTCalculator
+    
+    # Simple PDF and QR generators (placeholders)
+    class PDFGenerator:
+        def generate_invoice_pdf(self, invoice_data, shop_settings, customer_data, template, qr_path, logo_path):
+            # Generate a simple text-based invoice for now
+            invoice_text = f"""
+            INVOICE - {invoice_data['invoice_number']}
+            Date: {invoice_data['created_at']}
+            
+            Shop: {shop_settings.get('shop_name', 'Your Shop')}
+            Address: {shop_settings.get('address', 'Your Address')}
+            Phone: {shop_settings.get('phone', 'Your Phone')}
+            
+            Customer: {customer_data.get('name', 'Walk-in')}
+            
+            Items:
+            """
+            
+            for item in invoice_data['items']:
+                invoice_text += f"- {item['name']} x {item['quantity']} = ₹{item['total']:.2f}\n"
+            
+            invoice_text += f"""
+            
+            Subtotal: ₹{invoice_data['subtotal']:.2f}
+            GST: ₹{invoice_data['gst_amount']:.2f}
+            Total: ₹{invoice_data['total_amount']:.2f}
+            
+            Thank you for your business!
+            """
+            
+            # Save as text file (temporary solution)
+            filename = f"invoice_{invoice_data['invoice_number']}.txt"
+            with open(filename, 'w') as f:
+                f.write(invoice_text)
+            
+            return filename
+    
+    class QRCodeGenerator:
+        def generate_upi_payment_qr(self, upi_id, amount, shop_name, note):
+            # Return None for now (QR generation requires additional setup)
+            return None
 
 # Page configuration
 st.set_page_config(
